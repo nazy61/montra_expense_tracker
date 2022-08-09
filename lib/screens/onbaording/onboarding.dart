@@ -5,6 +5,7 @@ import 'package:montra/widgets/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../utils/utils.dart';
+import '../screens.dart';
 
 class OnbaordingScreen extends StatefulWidget {
   const OnbaordingScreen({Key? key}) : super(key: key);
@@ -19,10 +20,6 @@ class _OnbaordingScreenState extends State<OnbaordingScreen> {
   @override
   void initState() {
     initialization();
-    controller.addListener(() {
-      // final onboardingCubit = BlocProvider.of<OnboardingCubit>(context);
-      // onboardingCubit.pageChanged(controller.page!);
-    });
     super.initState();
   }
 
@@ -51,7 +48,11 @@ class _OnbaordingScreenState extends State<OnbaordingScreen> {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          PrimaryButton(title: "Sign Up"),
+          PrimaryButton(
+            title: "Sign Up",
+            onPressed: () => AppCustomMethods.navigateCloseAll(
+                const SignupScreen(), context),
+          ),
           SizedBox(height: 20.0.h),
           SecondaryButton(title: "Login"),
         ],

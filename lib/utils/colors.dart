@@ -112,4 +112,7 @@ class AppCustomColors {
       900: Color(0xFF0077FF),
     },
   );
+
+  static Color backgroundColor = const Color(0xFFE5E5E5);
+  static Color borderColor = const Color(0xFFF1F1FA);
 }

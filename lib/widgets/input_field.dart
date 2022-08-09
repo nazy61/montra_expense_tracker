@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:montra/utils/colors.dart';
 
 class InputField extends StatelessWidget {
   final TextEditingController? controller;
@@ -22,9 +23,9 @@ class InputField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0.r),
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15.0.r),
+          border: Border.all(width: 2.0.w, color: AppCustomColors.borderColor)),
       child: Row(
         children: [
           if (iconData != null) iconData!,

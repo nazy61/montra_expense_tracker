@@ -33,6 +33,12 @@ TextStyle title3Dark75 = TextStyle(
   fontSize: 18.0.sp,
 );
 
+TextStyle title3Dark50 = TextStyle(
+  fontWeight: FontWeight.w600,
+  color: AppCustomColors.dark[300]!,
+  fontSize: 18.0.sp,
+);
+
 TextStyle title3Light80 = TextStyle(
   fontWeight: FontWeight.w600,
   color: AppCustomColors.light[700]!,
@@ -66,6 +72,12 @@ TextStyle regular2Dark75 = TextStyle(
 TextStyle regular3Dark75 = TextStyle(
   fontWeight: FontWeight.w500,
   color: AppCustomColors.dark[400]!,
+  fontSize: 14.0.sp,
+);
+
+TextStyle regular3Violet100 = TextStyle(
+  fontWeight: FontWeight.w500,
+  color: AppCustomColors.violet[900]!,
   fontSize: 14.0.sp,
 );
 
