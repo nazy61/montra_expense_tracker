@@ -15,6 +15,12 @@ TextStyle title1Dark75 = TextStyle(
   fontSize: 32.0.sp,
 );
 
+TextStyle title1Dark50 = TextStyle(
+  fontWeight: FontWeight.w700,
+  color: AppCustomColors.dark[300]!,
+  fontSize: 32.0.sp,
+);
+
 TextStyle title2Dark75 = TextStyle(
   fontWeight: FontWeight.w600,
   color: AppCustomColors.dark[400]!,
@@ -42,6 +48,12 @@ TextStyle title3Violett100 = TextStyle(
 TextStyle regular1Dark75 = TextStyle(
   fontWeight: FontWeight.w500,
   color: AppCustomColors.dark[400]!,
+  fontSize: 16.0.sp,
+);
+
+TextStyle body1Light20 = TextStyle(
+  fontWeight: FontWeight.w500,
+  color: const Color(0xFF91919F),
   fontSize: 16.0.sp,
 );
 

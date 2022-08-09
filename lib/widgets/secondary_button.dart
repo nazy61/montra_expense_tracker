@@ -10,12 +10,14 @@ class SecondaryButton extends StatelessWidget {
   final String title;
   final Function? onPressed;
   final bool loading;
+  final Widget? icon;
 
   const SecondaryButton({
     Key? key,
     required this.title,
     this.onPressed,
     this.loading = false,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -26,24 +28,46 @@ class SecondaryButton extends StatelessWidget {
             : const Center(child: CupertinoActivityIndicator())
         : SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(const EdgeInsets.all(15)),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0.r),
+            child: icon == null
+                ? ElevatedButton(
+                    style: ButtonStyle(
+                      padding:
+                          MaterialStateProperty.all(const EdgeInsets.all(15)),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0.r),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        AppCustomColors.violet[100]!,
+                      ),
+                    ),
+                    onPressed: () => onPressed!(),
+                    child: Text(
+                      title,
+                      style: title3Violett100,
+                    ),
+                  )
+                : ElevatedButton.icon(
+                    style: ButtonStyle(
+                      padding:
+                          MaterialStateProperty.all(const EdgeInsets.all(15)),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0.r),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        AppCustomColors.violet[100]!,
+                      ),
+                    ),
+                    onPressed: () => onPressed!(),
+                    icon: icon!,
+                    label: Text(
+                      title,
+                      style: title3Violett100,
+                    ),
                   ),
-                ),
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  AppCustomColors.violet[100]!,
-                ),
-              ),
-              onPressed: () => onPressed!(),
-              child: Text(
-                title,
-                style: title3Violett100,
-              ),
-            ),
           );
   }
 }
