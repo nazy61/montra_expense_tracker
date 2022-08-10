@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:montra/utils/utils.dart';
 import 'package:montra/widgets/widgets.dart';
 
@@ -39,6 +40,17 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SizedBox(height: 20.0.h),
               _buildTermsSection(),
+              SizedBox(height: 20.0.h),
+              PrimaryButton(title: "Sign Up"),
+              SizedBox(height: 10.0.h),
+              Text("Or with", style: regular4light20),
+              SizedBox(height: 10.0.h),
+              OutlinedButtons(
+                title: "Sign Up with Google",
+                icon: SvgPicture.asset(
+                  "assets/icons/google.svg",
+                ),
+              ),
             ],
           ),
         ),

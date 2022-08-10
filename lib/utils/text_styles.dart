@@ -81,6 +81,12 @@ TextStyle regular3Violet100 = TextStyle(
   fontSize: 14.0.sp,
 );
 
+TextStyle regular4light20 = TextStyle(
+  fontWeight: FontWeight.w700,
+  color: AppCustomColors.light[50]!,
+  fontSize: 14.0.sp,
+);
+
 TextStyle smallDark75 = TextStyle(
   fontWeight: FontWeight.w500,
   color: AppCustomColors.dark[400]!,
