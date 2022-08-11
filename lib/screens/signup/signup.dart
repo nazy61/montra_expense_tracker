@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:montra/screens/signup/loginPage.dart';
+import 'package:montra/screens/signup/verification.dart';
 import 'package:montra/utils/utils.dart';
 import 'package:montra/widgets/widgets.dart';
 
@@ -41,7 +43,16 @@ class _SignupScreenState extends State<SignupScreen> {
               SizedBox(height: 20.0.h),
               _buildTermsSection(),
               SizedBox(height: 20.0.h),
-              PrimaryButton(title: "Sign Up"),
+              PrimaryButton(
+                title: "Sign Up",
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => VerficationPage(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(height: 10.0.h),
               Text("Or with", style: regular4light20),
               SizedBox(height: 10.0.h),
@@ -51,6 +62,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   "assets/icons/google.svg",
                 ),
               ),
+              _loginLink()
             ],
           ),
         ),
@@ -81,6 +93,37 @@ class _SignupScreenState extends State<SignupScreen> {
               ],
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget _loginLink() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 36.0,
+        ),
+        Row(
+          children: [
+            Text(
+              "Already have an account?",
+              style: regular3Dark75,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+              },
+              child: const Text(
+                "Login",
+              ),
+            ),
+          ],
         ),
       ],
     );
