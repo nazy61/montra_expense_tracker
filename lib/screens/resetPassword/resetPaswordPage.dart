@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:montra/screens/signup/loginPage.dart';
 import 'package:montra/widgets/input_field.dart';
+import 'package:montra/widgets/widgets.dart';
 
 import '../../utils/utils.dart';
 
@@ -42,18 +43,15 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               SizedBox(
                 height: 32.0,
               ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
-                      ),
-                    );
-                  },
-                  child: Text("Continue"),
-                ),
+              PrimaryButton(
+                title: "Continue",
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LoginPage(),
+                    ),
+                  );
+                },
               ),
             ],
           ),

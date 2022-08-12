@@ -50,18 +50,15 @@ class _LoginPageState extends State<LoginPage> {
   Widget _loginButton() {
     return Column(
       children: [
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => SetupPinPage(),
-                ),
-              );
-            },
-            child: Text("Login"),
-          ),
+        PrimaryButton(
+          title: "Login",
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => SetupPinPage(),
+              ),
+            );
+          },
         ),
         _forgotPasswordLink(),
       ],
@@ -83,7 +80,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             );
           },
-          child: Text("Forgot Password"),
+          child: Text(
+            "Forgot Password",
+            style: title3Violett100,
+          ),
         ),
         SizedBox(
           height: 38.0,
@@ -97,7 +97,10 @@ class _LoginPageState extends State<LoginPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Don't have an account yet?"),
+        Text(
+          "Don't have an account yet?",
+          style: body1Light20,
+        ),
         TextButton(
           onPressed: () {
             Navigator.of(context).push(
@@ -106,7 +109,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             );
           },
-          child: Text("Sign up"),
+          child: Text(
+            "Sign up",
+            style: title3Violett100,
+          ),
         ),
       ],
     );

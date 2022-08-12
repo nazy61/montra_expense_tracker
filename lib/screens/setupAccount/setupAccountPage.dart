@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:montra/widgets/primary_button.dart';
+
+import '../../utils/utils.dart';
 
 class SetupAccountPage extends StatefulWidget {
   const SetupAccountPage({Key? key}) : super(key: key);
@@ -20,13 +23,25 @@ class _SetupAccountPageState extends State<SetupAccountPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Let's setup your account"),
-              Text("account!"),
+              Text(
+                "Let's setup your account",
+                style: title1Dark75,
+              ),
+              Text(
+                "account!",
+                style: title1Dark75,
+              ),
               SizedBox(
                 height: 37.0,
               ),
-              Text("account can be your bank,credit card or"),
-              Text("your wallet"),
+              Text(
+                "Account can be your bank,credit card or",
+                style: regular3Dark75,
+              ),
+              Text(
+                "your wallet",
+                style: regular3Dark75,
+              ),
               SizedBox(
                 height: 434.0,
               ),
@@ -41,12 +56,9 @@ class _SetupAccountPageState extends State<SetupAccountPage> {
   Widget _letsGoButton() {
     return Column(
       children: [
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Text("Let's go"),
-          ),
+        PrimaryButton(
+          title: "Let's go",
+          onPressed: () {},
         ),
       ],
     );

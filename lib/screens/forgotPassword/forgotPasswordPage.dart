@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:montra/screens/backToLogin/backToLoginPage.dart';
 import 'package:montra/widgets/input_field.dart';
+import 'package:montra/widgets/primary_button.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/utils.dart';
@@ -22,7 +23,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Sign Up", style: title3Dark75),
+          title: Text("Forgot Password", style: title3Dark75),
           backgroundColor: AppCustomColors.light[900],
           elevation: 0,
         ),
@@ -31,10 +32,25 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Don't worry."),
-              Text("Enter your email and we'll"),
-              Text("send you a link to reset your"),
-              Text("password"),
+              SizedBox(
+                height: 69.0,
+              ),
+              Text(
+                "Don't worry.",
+                style: title2Dark75,
+              ),
+              Text(
+                "Enter your email and we'll",
+                style: title2Dark75,
+              ),
+              Text(
+                "send you a link to reset your",
+                style: title2Dark75,
+              ),
+              Text(
+                "password",
+                style: title2Dark75,
+              ),
               SizedBox(
                 height: 46.0,
               ),
@@ -44,18 +60,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               SizedBox(
                 height: 32.0,
               ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => BackToLoginPage(),
-                      ),
-                    );
-                  },
-                  child: Text("Continue"),
-                ),
+              PrimaryButton(
+                title: "Continue",
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => BackToLoginPage(),
+                    ),
+                  );
+                },
               ),
             ],
           ),

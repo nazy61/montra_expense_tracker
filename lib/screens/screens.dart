@@ -1,2 +1,9 @@
 export 'onbaording/onboarding.dart';
 export 'signup/signup.dart';
+export 'backToLogin/backToLoginPage.dart';
+export 'forgotPassword/forgotPasswordPage.dart';
+export 'resetPassword/resetPaswordPage.dart';
+export 'setupPin/setupPinPage.dart';
+export 'setupAccount/setupAccountPage.dart';
+export 'signup/loginPage.dart';
+export 'signup/verification.dart';
