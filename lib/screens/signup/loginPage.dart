@@ -20,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: BackButton(color: Colors.black),
           centerTitle: true,
           title: Text("Login", style: title3Dark75),
           backgroundColor: AppCustomColors.light[900],

@@ -7,3 +7,4 @@ export 'setupPin/setupPinPage.dart';
 export 'setupAccount/setupAccountPage.dart';
 export 'signup/loginPage.dart';
 export 'signup/verification.dart';
+export 'addNewAccount/addNewAccountPage.dart';

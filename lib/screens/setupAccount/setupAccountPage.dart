@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:montra/screens/screens.dart';
 import 'package:montra/widgets/primary_button.dart';
 
 import '../../utils/utils.dart';
@@ -58,7 +58,13 @@ class _SetupAccountPageState extends State<SetupAccountPage> {
       children: [
         PrimaryButton(
           title: "Let's go",
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => AddNewAccountPage(),
+              ),
+            );
+          },
         ),
       ],
     );
