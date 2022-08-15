@@ -27,39 +27,42 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
           backgroundColor: Color(0xFF7F3DFF),
           elevation: 0,
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Container(),
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20.0,
-                ),
-                Text(
-                  "Balance",
-                  style: title3Light80,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 13.0,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20.0,
-                ),
-                Text(
-                  "£00.0",
-                  style: titleXDark75,
-                ),
-              ],
-            ),
-            _inputField(),
-          ],
+        body: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Container(),
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    "Balance",
+                    style: title3Light80,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 13.0,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    "£00.0",
+                    style: titleXDark75,
+                  ),
+                ],
+              ),
+              _inputField(),
+            ],
+          ),
         ),
       ),
     );
@@ -74,16 +77,36 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0),
               ),
             ),
             child: InputField(
               hint: "Name",
             ),
           ),
-          InputField(
-            hint: "Account type",
+          SizedBox(
+            width: 20.0,
+          ),
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50.0),
+                      bottomRight: Radius.circular(50.0),
+                    ),
+                  ),
+                  child: InputField(
+                    hint: "Account Type",
+                    iconData: Icon(Icons.arrow_drop_down),
+                  ),
+                ),
+              ],
+            ),
           ),
           _buttonSection(),
         ],
