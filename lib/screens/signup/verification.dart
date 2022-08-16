@@ -25,19 +25,24 @@ class _VerficationPageState extends State<VerficationPage> {
           backgroundColor: AppCustomColors.light[900],
           elevation: 0,
         ),
-        body: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text("Enter your", style: title1Dark75),
-              Text(
-                "Verification code",
-                style: title1Dark75,
-              ),
-              _verificationCode(),
-            ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text("Enter your", style: title1Dark75),
+                Text(
+                  "Verification code",
+                  style: title1Dark75,
+                ),
+                SizedBox(
+                  height: 53.0,
+                ),
+                _verificationCode(),
+              ],
+            ),
           ),
         ),
       ),
@@ -48,27 +53,38 @@ class _VerficationPageState extends State<VerficationPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PinCodeTextField(
-          appContext: context,
-          length: 6,
-          obscureText: false,
-          animationType: AnimationType.fade,
-          pinTheme: PinTheme(
-            shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(5),
-            fieldHeight: 50,
-            fieldWidth: 40,
-            activeFillColor: Colors.white,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 60.0),
+          child: PinCodeTextField(
+            appContext: context,
+            length: 5,
+            obscureText: true,
+            obscuringCharacter: "*",
+            animationType: AnimationType.fade,
+            pinTheme: PinTheme(
+              shape: PinCodeFieldShape.box,
+              fieldHeight: 40,
+              fieldWidth: 40,
+              activeFillColor: Colors.pink,
+              activeColor: Colors.green,
+              inactiveColor: Colors.purple,
+              selectedColor: Colors.black,
+              errorBorderColor: Colors.red,
+            ),
+            animationDuration: Duration(milliseconds: 100),
+            backgroundColor: Colors.white,
+            enableActiveFill: false,
+            keyboardType: TextInputType.number,
+            onCompleted: (v) {
+              print("Completed");
+            },
+            onChanged: (value) {
+              print(value);
+            },
           ),
-          animationDuration: Duration(milliseconds: 300),
-          backgroundColor: Colors.blue.shade50,
-          enableActiveFill: true,
-          onCompleted: (v) {
-            print("Completed");
-          },
-          onChanged: (value) {
-            print(value);
-          },
+        ),
+        SizedBox(
+          height: 80.0,
         ),
         Text(
           "We sent a verificatin code to your",
