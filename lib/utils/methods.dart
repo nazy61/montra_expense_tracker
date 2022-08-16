@@ -8,4 +8,11 @@ class AppCustomMethods {
       (Route<dynamic> route) => false,
     );
   }
+
+  static navigate(page, context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => page),
+    );
+  }
 }

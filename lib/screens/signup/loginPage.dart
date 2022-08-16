@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:montra/screens/forgotPassword/forgotPasswordPage.dart';
 import 'package:montra/screens/screens.dart';
-import 'package:montra/screens/setupPin/setupPinPage.dart';
 
 import '../../utils/utils.dart';
 import '../../widgets/widgets.dart';
@@ -20,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: BackButton(color: Colors.black),
+          leading: Container(),
           centerTitle: true,
           title: Text("Login", style: title3Dark75),
           backgroundColor: AppCustomColors.light[900],
@@ -51,16 +49,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _loginButton() {
     return Column(
       children: [
-        PrimaryButton(
-          title: "Login",
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => SetupPinPage(),
-              ),
-            );
-          },
-        ),
+        PrimaryButton(title: "Login", onPressed: () {}),
         _forgotPasswordLink(),
       ],
     );
@@ -74,13 +63,10 @@ class _LoginPageState extends State<LoginPage> {
           height: 33.0,
         ),
         TextButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => ForgotPasswordPage(),
-              ),
-            );
-          },
+          onPressed: () => AppCustomMethods.navigate(
+            const ForgotPasswordPage(),
+            context,
+          ),
           child: Text(
             "Forgot Password",
             style: title3Violett100,

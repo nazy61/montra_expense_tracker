@@ -34,6 +34,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0.r),
+        border: Border.all(width: 2.0.w, color: AppCustomColors.borderColor),
       ),
       child: Row(
         children: [
