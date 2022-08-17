@@ -23,24 +23,25 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
               icon: Icon(
                 Icons.home,
               ),
-              label: "null",
+              label: "Home",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
-              label: "null",
+              label: "Transaction",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.lock_clock),
-              label: "null",
+              label: "Budget",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: "null",
+              label: "Profile",
             ),
           ],
-          type: BottomNavigationBarType.shifting,
+          type: BottomNavigationBarType.fixed,
           selectedItemColor: Color(0xFF7F3DFF),
           iconSize: 40,
+          elevation: 5,
           unselectedItemColor: Color(0xFF7A7E80),
         ),
         body: Padding(
@@ -76,6 +77,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
               _accountBalanceSection(),
               _incomeExpensesSection(),
               _frequencySection(),
+              _recentTransactionSection(),
             ],
           ),
         ),
@@ -177,17 +179,14 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
   Widget _frequencySection() {
     return Expanded(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              SizedBox(
-                height: 36.0,
-              ),
-              Text(
-                "Spend frequency",
-                style: title3Dark75,
-              ),
-            ],
+          SizedBox(
+            height: 26.0,
+          ),
+          Text(
+            "Spend frequency",
+            style: title3Dark75,
           ),
           Row(
             children: [
@@ -240,6 +239,204 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget _recentTransactionSection() {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                "Recent Transaction",
+                style: title3Dark75,
+              ),
+            ),
+            SizedBox(
+              width: 10.0,
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              child: Text(
+                "See all",
+                style: regular3Violet100,
+              ),
+            ),
+          ],
+        ),
+        _rowOne(),
+        SizedBox(
+          height: 8.0,
+        ),
+        _rowTwo(),
+        SizedBox(
+          height: 8.0,
+        ),
+        _rowTwo(),
+      ],
+    );
+  }
+
+  Widget _rowOne() {
+    return Row(
+      children: [
+        OutlinedButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.cabin,
+            color: Colors.yellow,
+          ),
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                "Shopping",
+                style: regular1Dark75,
+              ),
+              SizedBox(
+                height: 13.0,
+              ),
+              Text(
+                "Buy some gorcery",
+                style: TextStyle(
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: [
+            Text(
+              "-120",
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              "10:00 AM",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _rowTwo() {
+    return Row(
+      children: [
+        OutlinedButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.subject_sharp,
+            color: Colors.purple,
+          ),
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                "Subscription",
+                style: regular1Dark75,
+              ),
+              SizedBox(
+                height: 13.0,
+              ),
+              Text(
+                "Disney + Annual..",
+                style: TextStyle(
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: [
+            Text(
+              "-80",
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              "03:30 PM",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _rowThree() {
+    return Row(
+      children: [
+        OutlinedButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.food_bank_rounded,
+            color: Colors.purple,
+          ),
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                "Food",
+                style: regular1Dark75,
+              ),
+              SizedBox(
+                height: 13.0,
+              ),
+              Text(
+                "Buy me ramen",
+                style: TextStyle(
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: [
+            Text(
+              "-32",
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              "07:30 PM",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
