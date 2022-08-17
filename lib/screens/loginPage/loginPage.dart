@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:montra/screens/accountBalancePage/accountBalancePage.dart';
+
 import 'package:montra/screens/screens.dart';
 
 import '../../utils/utils.dart';
@@ -49,7 +51,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget _loginButton() {
     return Column(
       children: [
-        PrimaryButton(title: "Login", onPressed: () {}),
+        PrimaryButton(
+          title: "Login",
+          onPressed: () => AppCustomMethods.navigate(
+            const AccountBalancePage(),
+            context,
+          ),
+        ),
         _forgotPasswordLink(),
       ],
     );

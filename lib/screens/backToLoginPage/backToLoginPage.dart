@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:montra/screens/resetPassword/resetPaswordPage.dart';
-import 'package:montra/screens/signup/loginPage.dart';
-import 'package:montra/widgets/widgets.dart';
 
+import 'package:montra/screens/loginPage/loginPage.dart';
+import 'package:montra/screens/resetPasswordPage/resetPaswordPage.dart';
+
+import 'package:montra/widgets/widgets.dart';
 import '../../utils/utils.dart';
 
 class BackToLoginPage extends StatefulWidget {

@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:montra/screens/signup/loginPage.dart';
-import 'package:montra/widgets/input_field.dart';
+import '../../utils/utils.dart';
 import 'package:montra/widgets/widgets.dart';
 
-import '../../utils/utils.dart';
+import 'package:montra/screens/loginPage/loginPage.dart';
+import 'package:montra/widgets/input_field.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   const ResetPasswordPage({Key? key}) : super(key: key);

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:montra/widgets/input_field.dart';
-import 'package:montra/widgets/primary_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/utils.dart';
-import '../../widgets/input_field.dart';
+import 'package:montra/screens/addNewWalletPage/addNewWalletPage.dart';
+import 'package:montra/widgets/input_field.dart';
+import 'package:montra/widgets/primary_button.dart';
 
-class AddNewWalletPage extends StatefulWidget {
-  const AddNewWalletPage({Key? key}) : super(key: key);
+import '../../utils/utils.dart';
+
+class AddNewAccountPage extends StatefulWidget {
+  const AddNewAccountPage({Key? key}) : super(key: key);
 
   @override
-  State<AddNewWalletPage> createState() => _AddNewWalletPageState();
+  State<AddNewAccountPage> createState() => _AddNewAccountPageState();
 }
 
-class _AddNewWalletPageState extends State<AddNewWalletPage> {
+class _AddNewAccountPageState extends State<AddNewAccountPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +22,7 @@ class _AddNewWalletPageState extends State<AddNewWalletPage> {
         backgroundColor: Color(0xFF7F3DFF),
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Add new wallet"),
+          title: Text("Add new account"),
           leading: BackButton(),
           backgroundColor: Color(0xFF7F3DFF),
           elevation: 0,
@@ -66,7 +67,7 @@ class _AddNewWalletPageState extends State<AddNewWalletPage> {
 
   Widget _inputField() {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -77,7 +78,7 @@ class _AddNewWalletPageState extends State<AddNewWalletPage> {
       child: Column(
         children: [
           InputField(
-            hint: "Chase",
+            hint: "Name",
           ),
           SizedBox(
             height: 20.0,
@@ -102,30 +103,15 @@ class _AddNewWalletPageState extends State<AddNewWalletPage> {
                 (String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text("Bank"),
+                    child: Text("Account type"),
                   );
                 },
               ).toList(),
             ),
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-          _bankLogoSection(),
           _buttonSection(),
         ],
       ),
-    );
-  }
-
-  Widget _bankLogoSection() {
-    return Row(
-      children: [
-        Text(
-          "Bank",
-          style: regular1Dark75,
-        ),
-      ],
     );
   }
 
@@ -139,7 +125,13 @@ class _AddNewWalletPageState extends State<AddNewWalletPage> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: PrimaryButton(
             title: "Continue",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => AddNewWalletPage(),
+                ),
+              );
+            },
           ),
         ),
         SizedBox(

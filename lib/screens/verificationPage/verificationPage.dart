@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:montra/screens/screens.dart';
-import 'package:montra/screens/signup/loginPage.dart';
+import 'package:montra/screens/loginPage/loginPage.dart';
 import 'package:montra/utils/colors.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 

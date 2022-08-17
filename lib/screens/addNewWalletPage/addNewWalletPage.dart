@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:montra/screens/addNewWallet/addNewWalletPage.dart';
+import 'package:montra/screens/youAreSetPage/youAreSetPage.dart';
 import 'package:montra/widgets/input_field.dart';
 import 'package:montra/widgets/primary_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/utils.dart';
+import '../../widgets/input_field.dart';
 
-class AddNewAccountPage extends StatefulWidget {
-  const AddNewAccountPage({Key? key}) : super(key: key);
+class AddNewWalletPage extends StatefulWidget {
+  const AddNewWalletPage({Key? key}) : super(key: key);
 
   @override
-  State<AddNewAccountPage> createState() => _AddNewAccountPageState();
+  State<AddNewWalletPage> createState() => _AddNewWalletPageState();
 }
 
-class _AddNewAccountPageState extends State<AddNewAccountPage> {
+class _AddNewWalletPageState extends State<AddNewWalletPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +22,7 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
         backgroundColor: Color(0xFF7F3DFF),
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Add new account"),
+          title: Text("Add new wallet"),
           leading: BackButton(),
           backgroundColor: Color(0xFF7F3DFF),
           elevation: 0,
@@ -66,7 +67,7 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
 
   Widget _inputField() {
     return Container(
-      padding: const EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -77,7 +78,7 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
       child: Column(
         children: [
           InputField(
-            hint: "Name",
+            hint: "Chase",
           ),
           SizedBox(
             height: 20.0,
@@ -102,15 +103,39 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
                 (String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text("Account type"),
+                    child: Text(
+                      "Bank",
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   );
                 },
               ).toList(),
             ),
           ),
+          SizedBox(
+            height: 10.0,
+          ),
+          _bankLogoSection(),
           _buttonSection(),
         ],
       ),
+    );
+  }
+
+  Widget _bankLogoSection() {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              "Bank",
+              style: regular1Dark75,
+            ),
+          ],
+        ),
+        _rowOneSection(),
+        _rowTwoSection()
+      ],
     );
   }
 
@@ -118,23 +143,102 @@ class _AddNewAccountPageState extends State<AddNewAccountPage> {
     return Column(
       children: [
         SizedBox(
-          height: 40.0,
+          height: 30.0,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: PrimaryButton(
             title: "Continue",
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => AddNewWalletPage(),
-                ),
-              );
-            },
+            onPressed: () => AppCustomMethods.navigate(
+              const YouAreSetPage(),
+              context,
+            ),
           ),
         ),
         SizedBox(
-          height: 50,
+          height: 16.0,
+        ),
+      ],
+    );
+  }
+
+  Widget _rowOneSection() {
+    return Row(
+      children: [
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _rowTwoSection() {
+    return Row(
+      children: [
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Icon(Icons.monetization_on),
+          ),
+        ),
+        SizedBox(
+          width: 8.0,
+        ),
+        Expanded(
+          child: OutlinedButton(
+            onPressed: () {},
+            child: Text(
+              "See Other",
+            ),
+          ),
         ),
       ],
     );

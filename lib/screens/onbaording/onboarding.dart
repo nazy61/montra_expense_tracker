@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:montra/screens/signup/loginPage.dart';
+import 'package:montra/screens/loginPage/loginPage.dart';
 import 'package:montra/widgets/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

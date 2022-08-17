@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:montra/screens/signup/loginPage.dart';
-import 'package:montra/screens/signup/verification.dart';
+import 'package:montra/screens/screens.dart';
+import 'package:montra/screens/loginPage/loginPage.dart';
+import 'package:montra/screens/verificationPage/verificationPage.dart';
 import 'package:montra/utils/utils.dart';
 import 'package:montra/widgets/widgets.dart';
 
