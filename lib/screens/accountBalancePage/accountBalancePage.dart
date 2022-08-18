@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../utils/utils.dart';
 
@@ -40,7 +42,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           ],
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Color(0xFF7F3DFF),
-          iconSize: 40,
+          iconSize: 25,
           elevation: 5,
           unselectedItemColor: Color(0xFF7A7E80),
         ),
@@ -265,41 +267,75 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
             ),
           ],
         ),
-        _rowOne(),
+        _row(
+          amt: "-\$120",
+          color: Colors.orange,
+          date: "10:OO AM",
+          desc: "Buy some grocery",
+          iconPath: "assets/icons/shopping-bag.svg",
+          title: "Shopping",
+        ),
         SizedBox(
           height: 8.0,
         ),
-        _rowTwo(),
+        _row(
+          amt: "-\$80",
+          color: Colors.purple,
+          date: "10:OO AM",
+          desc: "Netflix",
+          iconPath: "assets/icons/recurring-bill.svg",
+          title: "Subcription",
+        ),
         SizedBox(
           height: 8.0,
         ),
-        _rowTwo(),
+        _row(
+          amt: "-\$32",
+          color: Colors.red,
+          date: "10:OO AM",
+          desc: "Buy salt",
+          iconPath: "assets/icons/home.svg",
+          title: "Food",
+        ),
       ],
     );
   }
 
-  Widget _rowOne() {
+  Widget _row({
+    required Color color,
+    required String title,
+    required String desc,
+    required String amt,
+    required String date,
+    required String iconPath,
+  }) {
     return Row(
       children: [
-        OutlinedButton(
-          onPressed: () {},
-          child: Icon(
-            Icons.cabin,
-            color: Colors.yellow,
+        Container(
+          padding: const EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0.r),
+            color: color.withOpacity(0.3),
+          ),
+          child: SvgPicture.asset(
+            iconPath,
+            color: color,
           ),
         ),
+        SizedBox(width: 10.0.w),
         Expanded(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Shopping",
+                title,
                 style: regular1Dark75,
               ),
               SizedBox(
                 height: 13.0,
               ),
               Text(
-                "Buy some gorcery",
+                desc,
                 style: TextStyle(
                   fontSize: 13.0,
                   fontWeight: FontWeight.w500,
@@ -312,7 +348,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
         Column(
           children: [
             Text(
-              "-120",
+              amt,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 16.0,
@@ -320,115 +356,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
               ),
             ),
             Text(
-              "10:00 AM",
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w500),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _rowTwo() {
-    return Row(
-      children: [
-        OutlinedButton(
-          onPressed: () {},
-          child: Icon(
-            Icons.subject_sharp,
-            color: Colors.purple,
-          ),
-        ),
-        Expanded(
-          child: Column(
-            children: [
-              Text(
-                "Subscription",
-                style: regular1Dark75,
-              ),
-              SizedBox(
-                height: 13.0,
-              ),
-              Text(
-                "Disney + Annual..",
-                style: TextStyle(
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Column(
-          children: [
-            Text(
-              "-80",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            Text(
-              "03:30 PM",
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w500),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _rowThree() {
-    return Row(
-      children: [
-        OutlinedButton(
-          onPressed: () {},
-          child: Icon(
-            Icons.food_bank_rounded,
-            color: Colors.purple,
-          ),
-        ),
-        Expanded(
-          child: Column(
-            children: [
-              Text(
-                "Food",
-                style: regular1Dark75,
-              ),
-              SizedBox(
-                height: 13.0,
-              ),
-              Text(
-                "Buy me ramen",
-                style: TextStyle(
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Column(
-          children: [
-            Text(
-              "-32",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            Text(
-              "07:30 PM",
+              date,
               style: TextStyle(
                   color: Colors.grey,
                   fontSize: 13.0,
