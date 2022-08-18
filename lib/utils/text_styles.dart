@@ -98,3 +98,9 @@ TextStyle tinyDark75 = TextStyle(
   color: AppCustomColors.dark[400]!,
   fontSize: 12.0.sp,
 );
+
+TextStyle tinyLight10 = TextStyle(
+  fontWeight: FontWeight.w500,
+  color: AppCustomColors.dark[50]!,
+  fontSize: 10.0.sp,
+);

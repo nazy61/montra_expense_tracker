@@ -69,7 +69,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                     ),
                   ),
                   Icon(
-                    Icons.notifications,
+                    Icons.notifications_rounded,
                     color: Color(0xFF7F3DFF),
                   ),
                 ],
