@@ -70,7 +70,10 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                       ),
                     ),
                   ),
-                  Icon(Icons.notifications),
+                  Icon(
+                    Icons.notifications,
+                    color: Color(0xFF7F3DFF),
+                  ),
                 ],
               ),
               SizedBox(
@@ -96,7 +99,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
             style: body1Light20,
           ),
           Text(
-            "£9400",
+            "\$9400",
             style: title1Dark75,
           ),
           SizedBox(
@@ -112,29 +115,50 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
       children: [
         Expanded(
           child: Container(
+            width: 168.0,
+            height: 80.0,
             child: ElevatedButton(
               onPressed: () {},
-              child: Column(
+              child: Row(
                 children: [
-                  Row(
-                    children: [
-                      Icon(Icons.camera_alt),
-                    ],
-                  ),
-                  Text(
-                    "Income",
-                    style: regular4light20,
+                  Container(
+                    child: Icon(
+                      Icons.camera_alt,
+                      size: 30.0,
+                      color: Color(0xFF00A86B),
+                    ),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0.r),
+                      color: Colors.white,
+                    ),
                   ),
                   SizedBox(
-                    height: 4.0,
+                    width: 10.0.w,
                   ),
-                  Text("£5000"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 18.0.h,
+                      ),
+                      Text(
+                        "Income",
+                        style: regular4light20,
+                      ),
+                      SizedBox(
+                        height: 4.0,
+                      ),
+                      Text("\$5000"),
+                    ],
+                  ),
                 ],
               ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(28),
                 ),
+                primary: const Color(0xFF00A86B),
               ),
             ),
           ),
@@ -144,29 +168,54 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
         ),
         Expanded(
           child: Container(
+            width: 168.0,
+            height: 80.0,
             child: ElevatedButton(
               onPressed: () {},
-              child: Column(
+              child: Row(
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.camera_alt),
+                      Container(
+                        child: Icon(
+                          Icons.camera_alt,
+                          size: 30.0,
+                          color: Color(0xFFFD3C4A),
+                        ),
+                        padding: EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 18.0,
+                          ),
+                          Text(
+                            "Expenses",
+                            style: regular4light20,
+                          ),
+                          SizedBox(
+                            height: 4.0,
+                          ),
+                          Text("\$1200"),
+                        ],
+                      ),
                     ],
                   ),
-                  Text(
-                    "Expenses",
-                    style: regular4light20,
-                  ),
-                  SizedBox(
-                    height: 4.0,
-                  ),
-                  Text("£1200"),
                 ],
               ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(28),
                 ),
+                primary: const Color(0xFFFD3C4A),
               ),
             ),
           ),
@@ -186,15 +235,15 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           SizedBox(
             height: 26.0,
           ),
-          Text(
-            "Spend frequency",
-            style: title3Dark75,
-          ),
           Row(
             children: [
               Expanded(
-                child: OutlinedButton(
-                  onPressed: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.0.r),
+                    color: Colors.white,
+                  ),
                   child: Text(
                     "Today",
                     style: body1Light20,
@@ -202,11 +251,15 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                 ),
               ),
               SizedBox(
-                width: 24.0,
+                width: 24.0.w,
               ),
               Expanded(
-                child: OutlinedButton(
-                  onPressed: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.0.r),
+                    color: Colors.white,
+                  ),
                   child: Text(
                     "Week",
                     style: body1Light20,
@@ -214,11 +267,15 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                 ),
               ),
               SizedBox(
-                width: 24.0,
+                width: 24.0.w,
               ),
               Expanded(
-                child: OutlinedButton(
-                  onPressed: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.0.r),
+                    color: Colors.white,
+                  ),
                   child: Text(
                     "Month",
                     style: body1Light20,
@@ -226,19 +283,26 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                 ),
               ),
               SizedBox(
-                width: 24.0,
+                width: 24.0.w,
               ),
               Expanded(
-                child: OutlinedButton(
-                  onPressed: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.0.r),
+                    color: Colors.white,
+                  ),
                   child: Text(
                     "Year",
                     style: body1Light20,
                   ),
                 ),
               ),
+              SizedBox(
+                width: 24.0.w,
+              ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -258,12 +322,13 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
             SizedBox(
               width: 10.0,
             ),
-            OutlinedButton(
-              onPressed: () {},
-              child: Text(
-                "See all",
-                style: regular3Violet100,
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40.0.r),
+                color: Color(0xFFEEE5FF),
               ),
+              child: Text("See all"),
             ),
           ],
         ),
