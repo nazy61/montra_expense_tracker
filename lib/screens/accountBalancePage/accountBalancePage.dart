@@ -60,13 +60,11 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                   ),
                   Expanded(
                     child: Container(
-                      child: Center(
-                        child: Row(
-                          children: [
-                            Icon(Icons.arrow_drop_down),
-                            Text("October"),
-                          ],
-                        ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.arrow_drop_down),
+                          Text("October"),
+                        ],
                       ),
                     ),
                   ),
@@ -82,6 +80,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
               _accountBalanceSection(),
               _incomeExpensesSection(),
               _frequencySection(),
+              _dateSection(),
               _recentTransactionSection(),
             ],
           ),
@@ -229,88 +228,105 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
 
   Widget _frequencySection() {
     return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 26.0,
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40.0.r),
-                    color: Colors.white,
-                  ),
+      child: Container(
+        child: Row(),
+      ),
+    );
+  }
+
+  Widget _dateSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 26.0,
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40.0.r),
+                  color: Colors.white,
+                ),
+                child: Center(
                   child: Text(
                     "Today",
                     style: body1Light20,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 24.0.w,
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40.0.r),
-                    color: Colors.white,
-                  ),
+            ),
+            SizedBox(
+              width: 24.0.w,
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40.0.r),
+                  color: Colors.white,
+                ),
+                child: Center(
                   child: Text(
                     "Week",
                     style: body1Light20,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 24.0.w,
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40.0.r),
-                    color: Colors.white,
-                  ),
+            ),
+            SizedBox(
+              width: 24.0.w,
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40.0.r),
+                  color: Colors.white,
+                ),
+                child: Center(
                   child: Text(
                     "Month",
                     style: body1Light20,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 24.0.w,
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40.0.r),
-                    color: Colors.white,
-                  ),
+            ),
+            SizedBox(
+              width: 24.0.w,
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40.0.r),
+                  color: Colors.white,
+                ),
+                child: Center(
                   child: Text(
                     "Year",
                     style: body1Light20,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 24.0.w,
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            SizedBox(
+              width: 24.0.w,
+            ),
+          ],
+        ),
+      ],
     );
   }
 
   Widget _recentTransactionSection() {
     return Column(
       children: [
+        SizedBox(
+          height: 8.0.h,
+        ),
         Row(
           children: [
             Expanded(
@@ -328,7 +344,10 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                 borderRadius: BorderRadius.circular(40.0.r),
                 color: Color(0xFFEEE5FF),
               ),
-              child: Text("See all"),
+              child: Text(
+                "See all",
+                style: regular3Violet100,
+              ),
             ),
           ],
         ),
