@@ -1,3 +1,4 @@
+import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -21,37 +22,69 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: "Transaction",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.lock_clock),
-              label: "Budget",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile",
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xFF7F3DFF),
-          iconSize: 25,
-          elevation: 5,
-          unselectedItemColor: Color(0xFF7A7E80),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.add),
+          backgroundColor: Color(0xFF7F3DFF),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {},
+        bottomNavigationBar: BubbleBottomBar(
+          opacity: .2,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50.0),
+            topRight: Radius.circular(50.0),
+          ),
+          elevation: 8,
+          fabLocation: BubbleBottomBarFabLocation.center,
+          hasNotch: true,
+          backgroundColor: Colors.white,
+          items: <BubbleBottomBarItem>[
+            BubbleBottomBarItem(
+              backgroundColor: Color(0xFF7F3DFF),
+              icon: Icon(
+                Icons.home,
+                color: Colors.grey,
+              ),
+              activeIcon: Icon(
+                Icons.home,
+                color: Color(0xFF7F3DFF),
+              ),
+              title: Text("Home"),
+            ),
+            BubbleBottomBarItem(
+              backgroundColor: Color(0xFF7F3DFF),
+              icon: Icon(
+                Icons.access_time,
+                color: Colors.grey,
+              ),
+              activeIcon: Icon(
+                Icons.access_time,
+              ),
+              title: Text("Transaction"),
+            ),
+            BubbleBottomBarItem(
+              backgroundColor: Colors.white,
+              icon: Icon(
+                Icons.lock_clock,
+                color: Colors.grey,
+              ),
+              activeIcon: Icon(
+                Icons.lock_clock,
+              ),
+              title: Text("Budget"),
+            ),
+            BubbleBottomBarItem(
+              backgroundColor: Color(0xFF7F3DFF),
+              icon: Icon(
+                Icons.face,
+                color: Colors.grey,
+              ),
+              activeIcon: Icon(
+                Icons.face,
+              ),
+              title: Text("Profile"),
+            ),
+          ],
         ),
         body: Padding(
           padding: EdgeInsets.all(20.0),
