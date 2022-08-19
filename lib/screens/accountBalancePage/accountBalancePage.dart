@@ -4,7 +4,9 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../models/models.dart';
 import '../../utils/utils.dart';
 
 class AccountBalancePage extends StatefulWidget {
@@ -46,45 +48,79 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           elevation: 5,
           unselectedItemColor: Color(0xFF7A7E80),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {},
+        ),
         body: Padding(
           padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(Icons.face),
-                  SizedBox(
-                    width: 98.8,
-                  ),
-                  Expanded(
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.arrow_drop_down),
-                          Text("October"),
-                        ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(Icons.face),
+                    SizedBox(
+                      width: 98.8,
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.arrow_drop_down),
+                            Text("October"),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Icon(
-                    Icons.notifications_rounded,
-                    color: Color(0xFF7F3DFF),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 23.0,
-              ),
-              _accountBalanceSection(),
-              _incomeExpensesSection(),
-              _frequencySection(),
-              _dateSection(),
-              _recentTransactionSection(),
-            ],
+                    Icon(
+                      Icons.notifications_rounded,
+                      color: Color(0xFF7F3DFF),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 23.0,
+                ),
+                _accountBalanceSection(),
+                _incomeExpensesSection(),
+                _buildLineChart(),
+                _dateSection(),
+                _recentTransactionSection(),
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildLineChart() {
+    return Container(
+      child: SfCartesianChart(
+        // Initialize category axis
+        primaryXAxis: CategoryAxis(),
+        backgroundColor: Colors.white,
+        title: ChartTitle(text: "Spend Frequency"),
+
+        series: <LineSeries<SalesData, String>>[
+          LineSeries<SalesData, String>(
+              // Bind data source
+              dataSource: <SalesData>[
+                SalesData('Jan', 35),
+                SalesData('Feb', 28),
+                SalesData('Mar', 34),
+                SalesData('Apr', 32),
+                SalesData('May', 40)
+              ],
+              color: Colors.purple,
+              width: 5,
+              xValueMapper: (SalesData sales, _) => sales.year,
+              yValueMapper: (SalesData sales, _) => sales.sales)
+        ],
       ),
     );
   }
@@ -226,14 +262,6 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
     );
   }
 
-  Widget _frequencySection() {
-    return Expanded(
-      child: Container(
-        child: Row(),
-      ),
-    );
-  }
-
   Widget _dateSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -251,9 +279,11 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                   color: Colors.white,
                 ),
                 child: Center(
-                  child: Text(
-                    "Today",
-                    style: body1Light20,
+                  child: FittedBox(
+                    child: Text(
+                      "Today",
+                      style: body1Light20,
+                    ),
                   ),
                 ),
               ),
