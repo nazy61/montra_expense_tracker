@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class AccountBalancePage extends StatefulWidget {
 }
 
 class _AccountBalancePageState extends State<AccountBalancePage> {
+  int _bottomNavIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,106 +31,90 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           backgroundColor: Color(0xFF7F3DFF),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BubbleBottomBar(
-          opacity: .2,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50.0),
-            topRight: Radius.circular(50.0),
-          ),
-          elevation: 8,
-          fabLocation: BubbleBottomBarFabLocation.center,
-          hasNotch: true,
-          backgroundColor: Colors.white,
-          items: <BubbleBottomBarItem>[
-            BubbleBottomBarItem(
-              backgroundColor: Color(0xFF7F3DFF),
-              icon: Icon(
-                Icons.home,
-                color: Colors.grey,
-              ),
-              activeIcon: Icon(
-                Icons.home,
-                color: Color(0xFF7F3DFF),
-              ),
-              title: Text("Home"),
-            ),
-            BubbleBottomBarItem(
-              backgroundColor: Color(0xFF7F3DFF),
-              icon: Icon(
-                Icons.access_time,
-                color: Colors.grey,
-              ),
-              activeIcon: Icon(
-                Icons.access_time,
-              ),
-              title: Text("Transaction"),
-            ),
-            BubbleBottomBarItem(
-              backgroundColor: Colors.white,
-              icon: Icon(
-                Icons.lock_clock,
-                color: Colors.grey,
-              ),
-              activeIcon: Icon(
-                Icons.lock_clock,
-              ),
-              title: Text("Budget"),
-            ),
-            BubbleBottomBarItem(
-              backgroundColor: Color(0xFF7F3DFF),
-              icon: Icon(
-                Icons.face,
-                color: Colors.grey,
-              ),
-              activeIcon: Icon(
-                Icons.face,
-              ),
-              title: Text("Profile"),
-            ),
+        bottomNavigationBar: AnimatedBottomNavigationBar(
+          icons: [
+            Icons.brightness_5,
+            Icons.brightness_4,
+            Icons.brightness_6,
+            Icons.brightness_7,
           ],
+          activeIndex: _bottomNavIndex,
+          gapLocation: GapLocation.center,
+          activeColor: Colors.red,
+          notchSmoothness: NotchSmoothness.verySmoothEdge,
+          leftCornerRadius: 32,
+          rightCornerRadius: 32,
+          onTap: (index) {
+            setState(() {
+              _bottomNavIndex = index;
+            });
+          },
+          //other params
         ),
         body: Padding(
           padding: EdgeInsets.all(20.0),
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(Icons.face),
-                    SizedBox(
-                      width: 98.8,
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.arrow_drop_down),
-                            Text("October"),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Icon(
-                      Icons.notifications_rounded,
-                      color: Color(0xFF7F3DFF),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 23.0,
-                ),
-                _accountBalanceSection(),
-                _incomeExpensesSection(),
-                _buildLineChart(),
-                _dateSection(),
-                _recentTransactionSection(),
-              ],
-            ),
+            child: _bottomNavIndex == 0
+                ? _tabOne()
+                : _bottomNavIndex == 1
+                    ? Container(
+                        color: Colors.red,
+                        width: 200.0,
+                        height: 200.0,
+                      )
+                    : _bottomNavIndex == 2
+                        ? Container(
+                            color: Colors.blue,
+                            width: 200.0,
+                            height: 200.0,
+                          )
+                        : Container(
+                            color: Colors.green,
+                            width: 200.0,
+                            height: 200.0,
+                          ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _tabOne() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Icon(Icons.face),
+            SizedBox(
+              width: 98.8,
+            ),
+            Expanded(
+              child: Container(
+                child: Row(
+                  children: [
+                    Icon(Icons.arrow_drop_down),
+                    Text("October"),
+                  ],
+                ),
+              ),
+            ),
+            Icon(
+              Icons.notifications_rounded,
+              color: Color(0xFF7F3DFF),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 23.0,
+        ),
+        _accountBalanceSection(),
+        _incomeExpensesSection(),
+        _buildLineChart(),
+        _dateSection(),
+        _recentTransactionSection(),
+      ],
     );
   }
 
