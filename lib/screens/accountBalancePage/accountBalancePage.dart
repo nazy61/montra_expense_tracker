@@ -6,6 +6,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:montra/widgets/input_field.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../models/models.dart';
@@ -33,14 +34,15 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: AnimatedBottomNavigationBar(
           icons: [
-            Icons.brightness_5,
-            Icons.brightness_4,
-            Icons.brightness_6,
-            Icons.brightness_7,
+            Icons.home,
+            Icons.transform_rounded,
+            Icons.pie_chart,
+            Icons.person,
           ],
           activeIndex: _bottomNavIndex,
           gapLocation: GapLocation.center,
-          activeColor: Colors.red,
+          activeColor: Color(0xFF7F3DFF),
+          inactiveColor: Colors.grey,
           notchSmoothness: NotchSmoothness.verySmoothEdge,
           leftCornerRadius: 32,
           rightCornerRadius: 32,
@@ -49,7 +51,6 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
               _bottomNavIndex = index;
             });
           },
-          //other params
         ),
         body: Padding(
           padding: EdgeInsets.all(20.0),
@@ -57,22 +58,16 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
             child: _bottomNavIndex == 0
                 ? _tabOne()
                 : _bottomNavIndex == 1
-                    ? Container(
-                        color: Colors.red,
-                        width: 200.0,
-                        height: 200.0,
-                      )
+                    ? _tabTwo()
                     : _bottomNavIndex == 2
-                        ? Container(
-                            color: Colors.blue,
-                            width: 200.0,
-                            height: 200.0,
-                          )
-                        : Container(
-                            color: Colors.green,
-                            width: 200.0,
-                            height: 200.0,
-                          ),
+                        ? _tabThree()
+                        : _bottomNavIndex == 3
+                            ? _tabFour()
+                            : Container(
+                                color: Colors.yellow,
+                                width: 200.0,
+                                height: 200.0,
+                              ),
           ),
         ),
       ),
@@ -114,6 +109,281 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
         _buildLineChart(),
         _dateSection(),
         _recentTransactionSection(),
+      ],
+    );
+  }
+
+  Widget _tabTwo() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          child: Row(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.arrow_drop_down_rounded,
+                      size: 20.73,
+                    ),
+                    SizedBox(
+                      width: 9.0,
+                    ),
+                    Text(
+                      "Month",
+                      style: regular3Dark75,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Icon(Icons.menu),
+              ),
+              SizedBox(
+                height: 8.0.h,
+              ),
+            ],
+          ),
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: InputField(hint: "See your finacial report"),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 21.0.h,
+        ),
+        Text(
+          "Today",
+          style: title3Dark75,
+        ),
+        SizedBox(
+          height: 27.0.h,
+        ),
+        _row(
+          amt: "-\$120",
+          color: Colors.orange,
+          date: "10:OO AM",
+          desc: "Buy some grocery",
+          iconPath: "assets/icons/shopping-bag.svg",
+          title: "Shopping",
+        ),
+        const SizedBox(
+          height: 8.0,
+        ),
+        _row(
+          amt: "-\$80",
+          color: Colors.purple,
+          date: "10:OO AM",
+          desc: "Netflix",
+          iconPath: "assets/icons/recurring-bill.svg",
+          title: "Subcription",
+        ),
+        const SizedBox(
+          height: 8.0,
+        ),
+        _row(
+          amt: "-\$32",
+          color: Colors.red,
+          date: "10:OO AM",
+          desc: "Buy salt",
+          iconPath: "assets/icons/home.svg",
+          title: "Food",
+        ),
+        SizedBox(
+          height: 15.0.h,
+        ),
+        Text(
+          "Yesterday",
+          style: title3Dark75,
+        ),
+        SizedBox(
+          height: 13.0.h,
+        ),
+        _row(
+          amt: "+ 5000",
+          color: Colors.green,
+          date: "04:30 PM",
+          desc: "Salary for july",
+          iconPath: "assets/icons/salary.svg",
+          title: "Salary",
+        ),
+        const SizedBox(
+          height: 8.0,
+        ),
+        _row(
+          amt: "-\$18",
+          color: Colors.blue,
+          date: "08:30 PM",
+          desc: "Charging Tesla",
+          iconPath: "assets/icons/car.svg",
+          title: "Transportation",
+        ),
+        SizedBox(
+          height: 13.0.h,
+        ),
+      ],
+    );
+  }
+
+  Widget _tabThree() {
+    return Container(
+      color: Color(0xFF7F3DFF),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.arrow_back_ios),
+              Expanded(
+                child: Center(
+                  child: Text("May"),
+                ),
+              ),
+              Icon(Icons.arrow_forward_ios),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _tabFour() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.account_circle_sharp),
+                        Text("Username"),
+                      ],
+                    ),
+                    Text("Iriana Saliha"),
+                  ],
+                ),
+              ),
+            ),
+            Icon(Icons.edit),
+          ],
+        ),
+        SizedBox(
+          height: 30.0,
+        ),
+        Container(
+          padding: EdgeInsets.all(20.0),
+          color: Colors.green,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0.r),
+                      color: Colors.red,
+                    ),
+                    child: Icon(Icons.account_balance_wallet),
+                  ),
+                  SizedBox(width: 10.0.w),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Account",
+                        style: regular1Dark75,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.0.h,
+              ),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0.r),
+                      color: Colors.red,
+                    ),
+                    child: Icon(Icons.settings),
+                  ),
+                  SizedBox(width: 10.0.w),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Settings",
+                        style: regular1Dark75,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.0.h,
+              ),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0.r),
+                      color: Colors.red,
+                    ),
+                    child: Icon(Icons.import_export),
+                  ),
+                  SizedBox(width: 10.0.w),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Export Data",
+                        style: regular1Dark75,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.0.h,
+              ),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0.r),
+                      color: Colors.red,
+                    ),
+                    child: Icon(Icons.logout),
+                  ),
+                  SizedBox(width: 10.0.w),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Log Out",
+                        style: regular1Dark75,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
@@ -249,17 +519,17 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 18.0,
                           ),
                           Text(
                             "Expenses",
                             style: regular4light20,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 4.0,
                           ),
-                          Text("\$1200"),
+                          const Text("\$1200"),
                         ],
                       ),
                     ],
@@ -275,7 +545,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 36.0,
         ),
       ],
@@ -286,7 +556,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 26.0,
         ),
         Row(
@@ -385,7 +655,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                 style: title3Dark75,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
             Container(
@@ -409,7 +679,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           iconPath: "assets/icons/shopping-bag.svg",
           title: "Shopping",
         ),
-        SizedBox(
+        const SizedBox(
           height: 8.0,
         ),
         _row(
@@ -420,7 +690,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           iconPath: "assets/icons/recurring-bill.svg",
           title: "Subcription",
         ),
-        SizedBox(
+        const SizedBox(
           height: 8.0,
         ),
         _row(
@@ -465,12 +735,12 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                 title,
                 style: regular1Dark75,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 13.0,
               ),
               Text(
                 desc,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13.0,
                   fontWeight: FontWeight.w500,
                   color: Colors.grey,
@@ -483,7 +753,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
           children: [
             Text(
               amt,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.red,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600,
@@ -491,7 +761,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
             ),
             Text(
               date,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 13.0,
                   fontWeight: FontWeight.w500),
