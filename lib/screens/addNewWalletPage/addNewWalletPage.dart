@@ -58,14 +58,14 @@ class _AddNewWalletPageState extends State<AddNewWalletPage> {
                 ),
               ],
             ),
-            _inputField(),
+            _inputFieldSection(),
           ],
         ),
       ),
     );
   }
 
-  Widget _inputField() {
+  Widget _inputFieldSection() {
     return Container(
       padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(

@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:montra/widgets/input_field.dart';
+import 'package:montra/widgets/primary_button.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../models/models.dart';
@@ -230,24 +231,48 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
   }
 
   Widget _tabThree() {
-    return Container(
-      color: Color(0xFF7F3DFF),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(Icons.arrow_back_ios),
-              Expanded(
-                child: Center(
-                  child: Text("May"),
-                ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Icon(Icons.arrow_back_ios),
+            Expanded(
+              child: Center(
+                child: Text("May"),
               ),
-              Icon(Icons.arrow_forward_ios),
-            ],
+            ),
+            Icon(Icons.arrow_forward_ios),
+          ],
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: Container(
+            padding: EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0),
+              ),
+              color: Color(0xFF7F3DFF),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("You don't have a budget."),
+                Text("Let's make one so you will be in control"),
+                SizedBox(
+                  height: 50.0.h,
+                ),
+                PrimaryButton(
+                  title: "Create a budget",
+                  onPressed: () {},
+                ),
+              ],
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -263,11 +288,22 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.account_circle_sharp),
-                        Text("Username"),
+                        Icon(
+                          Icons.account_circle_sharp,
+                          size: 100.0,
+                        ),
+                        SizedBox(
+                          width: 20.0.w,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Username"),
+                            Text("Iriana Saliha"),
+                          ],
+                        ),
                       ],
                     ),
-                    Text("Iriana Saliha"),
                   ],
                 ),
               ),
@@ -290,9 +326,12 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0.r),
-                      color: Colors.red,
+                      color: Colors.grey,
                     ),
-                    child: Icon(Icons.account_balance_wallet),
+                    child: Icon(
+                      Icons.account_balance_wallet,
+                      color: Color(0xFF7F3DFF),
+                    ),
                   ),
                   SizedBox(width: 10.0.w),
                   Row(
@@ -315,9 +354,12 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0.r),
-                      color: Colors.red,
+                      color: Colors.grey,
                     ),
-                    child: Icon(Icons.settings),
+                    child: Icon(
+                      Icons.settings,
+                      color: Color(0xFF7F3DFF),
+                    ),
                   ),
                   SizedBox(width: 10.0.w),
                   Row(
@@ -340,9 +382,12 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0.r),
-                      color: Colors.red,
+                      color: Colors.grey,
                     ),
-                    child: Icon(Icons.import_export),
+                    child: Icon(
+                      Icons.import_export,
+                      color: Color(0xFF7F3DFF),
+                    ),
                   ),
                   SizedBox(width: 10.0.w),
                   Row(
@@ -365,7 +410,7 @@ class _AccountBalancePageState extends State<AccountBalancePage> {
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0.r),
-                      color: Colors.red,
+                      color: Colors.red[300],
                     ),
                     child: Icon(Icons.logout),
                   ),
